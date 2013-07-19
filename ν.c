@@ -106,12 +106,10 @@ int main() {
 		if((child_id = fork()) == 0) {
 			if(execlp(PLAYER, PLAYER, full_path, NULL) == -1) {
 				perror("exec failed");
-				free(path);
 				return 1;
 			}
 		} else if(child_id == -1) {
 			perror("fork failed");
-			free(path);
 			return 1;
 		}
 	}
