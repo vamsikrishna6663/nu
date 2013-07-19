@@ -10,12 +10,12 @@
 
 #define INPUT_BUFFER_SIZE 512
 
-struct input_part {
-	char buffer[INPUT_BUFFER_SIZE];
-	struct input_part* next;
-};
-
 char* freadall(FILE* fp) {
+	struct input_part {
+		char buffer[INPUT_BUFFER_SIZE];
+		struct input_part* next;
+	};
+
 	struct input_part* head = malloc(sizeof(struct input_part));
 	head->next = NULL;
 	struct input_part* current = head;
